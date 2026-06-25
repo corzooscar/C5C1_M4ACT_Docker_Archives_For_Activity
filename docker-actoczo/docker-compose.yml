@@ -1,0 +1,20 @@
+services:
+
+  db:
+    image: postgres:${POSTGRES_VERSION}
+    container_name: ${POSTGRES_CONTAINER_NAME}
+    restart: always
+
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+
+    volumes:
+      - actividad_1_david:/var/lib/postgresql
+
+    ports:
+      - "${POSTGRES_PORT}:5432"
+
+volumes:
+  actividad_1_david:
